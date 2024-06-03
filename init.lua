@@ -174,8 +174,12 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
-vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
+-- vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
+--vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
+
+vim.keymap.set('i', '<C-x>', '<cmd>!go run .<CR>')
+vim.keymap.set('n', '<C-x>', '<cmd>!go run .<CR>')
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -798,6 +802,8 @@ require('lazy').setup({
     opts = ...,
   },
 
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
+
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -809,7 +815,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'gruvbox'
+      vim.cmd.colorscheme 'catppuccin'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
