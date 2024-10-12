@@ -174,12 +174,15 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
--- vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
---vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
+vim.keymap.set('i', 'kj', '<Esc>', { desc = 'Exit insert mode' })
 
+-- go devtool
 vim.keymap.set('i', '<C-x>', '<cmd>!go run .<CR>')
 vim.keymap.set('n', '<C-x>', '<cmd>!go run .<CR>')
 
+-- C devtool
+-- vim.keymap.set('n', '<C-x>', '<cmd>make<CR> <cmd>cd ../bin/Debug<CR> <cmd>!sandbox.exe<CR> <cmd>cd ../../game<CR>')
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
@@ -571,8 +574,8 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        -- clangd = {},
-        -- gopls = {},
+        clangd = {},
+        gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
