@@ -161,8 +161,8 @@ vim.opt.scrolloff = 10
 --  See `:help vim.keymap.set()`
 -- #change
 
--- C vum.api.nvim_set_keymap('n', '<leader>m', ':w<CR>:make<CR>:!main.exe<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>m', ':!go run .', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>m', ':w<CR>:make<CR>:!main.exe<CR>', { noremap = true, silent = true })
+-- GO vim.api.nvim_set_keymap('n', '<leader>m', ':!go run .', { noremap = true, silent = true })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -849,7 +849,15 @@ require('lazy').setup({
     priority = 1000,
     config = function()
       require('nord').setup {}
-      vim.cmd.colorscheme 'nord'
+      --vim.cmd.colorscheme 'nord'
+    end,
+  },
+  {
+    'xero/miasma.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      --  vim.cmd 'colorscheme miasma'
     end,
   },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
@@ -866,7 +874,7 @@ require('lazy').setup({
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       --vim.cmd.colorscheme 'tokyonight-night' kanagawa-paper
-      vim.cmd.colorscheme 'nord'
+      vim.cmd.colorscheme 'miasma'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
